@@ -1,0 +1,17 @@
+.controls {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.dropdown-container {
+    position: absolute;
+	display: flex;
+	flex-direction: column;
+    background: white;
+
+}
+
+.dropdownbtn {
+    transition: 1s;
+}

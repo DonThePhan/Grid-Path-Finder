@@ -1,0 +1,6 @@
+.grid {
+    width: max-content;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: column;
+}

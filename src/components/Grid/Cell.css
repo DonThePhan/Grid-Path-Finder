@@ -1,0 +1,66 @@
+.cell {
+	display: inline-block;
+	padding: 0;
+	height: 30px;
+	width: 30px;
+	border: 1px grey solid;
+}
+
+.inside {
+	box-sizing: border-box;
+	transform-origin: center;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	transition: .5s;
+}
+
+.start-end-node,
+.path {
+	transform: rotate(90deg);
+	background-color: lightgreen;
+}
+
+.checked {
+	transform: rotate(90deg);
+	background-color: blue;
+}
+
+.block {
+	transform: rotate(90deg);
+	background-color: black;
+}
+
+.visited {
+	animation: trip-me-out 2s;
+    background: #185ADB;
+}
+
+@keyframes trip-me-out {
+	0% {
+        margin: 50% 0 0 50%;
+		height: 0%;
+		width: 0%;
+		border-radius: 50%;
+	}
+
+	50% {
+        margin: 0 0 0 0;
+		height: 100%;
+		width: 100%;
+		border-radius: 0;
+		background-color: #FFC947;
+	}
+
+	100% {
+        background: #185ADB;
+	}
+}
+
+div i {
+    transform: rotate(-90deg);
+    margin: 7px;
+    color: #0A1931;
+}

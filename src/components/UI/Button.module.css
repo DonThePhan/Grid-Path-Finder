@@ -1,0 +1,15 @@
+.button {
+	padding: 10px;
+	background: transparent;
+	color: black;
+	border: none;
+    transition: .5s;
+}
+
+.button:hover {
+	background: #f7dbf0;
+}
+
+.selected {
+    background-color: cyan;
+}
