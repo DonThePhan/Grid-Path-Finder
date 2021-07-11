@@ -64,3 +64,11 @@ div i {
     margin: 7px;
     color: #0A1931;
 }
+
+div p {
+    margin: 0;
+    padding: 0;
+    padding-top: 6.5px;
+    display: inline-block;
+}
+

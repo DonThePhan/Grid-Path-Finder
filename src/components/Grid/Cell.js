@@ -12,6 +12,8 @@ function Cell(props) {
         mark = <i className="fas fa-star"></i>
     } else if (props.cell.y === startEnd.end[0] && props.cell.x === startEnd.end[1]) {
         mark = <i className="fas fa-flag"></i>
+    } else if (props.cell.class === 'path') {
+        // mark = <p>*</p>
     }
 
 	return (
