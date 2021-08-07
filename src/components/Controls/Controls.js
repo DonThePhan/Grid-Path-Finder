@@ -6,13 +6,16 @@ import GridContext from '../store/gridContext';
 
 function Controls() {
 	const { controlButtonClick, resetControl, algorithm, setAlgorithm } = useContext(ControlContext);
-	const { restGridContext } = useContext(GridContext);
+	const { restGridContext, createMaze } = useContext(GridContext);
 	const [ hover, setHover ] = useState(false);
 
 	function handleClick(e) {
 		if (e.target.name === 'reset') {
 			restGridContext();
 			resetControl();
+		} else if (e.target.name === 'maze') {
+			createMaze();
+		
 		} else {
 			controlButtonClick(e.target.name);
 		}
@@ -44,6 +47,9 @@ function Controls() {
 			</Button>
 			<Button onClick={handleClick} name="block">
 				Block
+			</Button>
+			<Button onClick={handleClick} name="maze">
+				Create Maze
 			</Button>
 			<div onMouseOver={mouseOverDropdown} onMouseLeave={mouseOffDropdown}>
 				<div className={classes['dropdown-container']}>

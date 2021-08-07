@@ -11,20 +11,19 @@ const AStarAlgorithm = (props) => {
 	const [ unvisited, setUnvisited ] = useState(null);
 
 	function createUnvisited() {
-        const defaultUnvisited = [];
-        
-        /**gCost is distance to start, 
+		const defaultUnvisited = [];
+
+		/**gCost is distance to start, 
          * hCost is distance to end 
          * fCost is gCost + hCost*/
 
 		for (let y of grid) {
-            for (let cell of y) {
-                
-                cell.gCost = Infinity
-                cell.hCost = Math.abs(startEnd.end[0] - cell.y) + Math.abs(startEnd.end[1] - cell.x)
-                
-                if (cell.class === '' || cell.class === 'start-end-node') {
-                    // give the starting node a gCost of zero
+			for (let cell of y) {
+				cell.gCost = Infinity;
+				cell.hCost = Math.abs(startEnd.end[0] - cell.y) + Math.abs(startEnd.end[1] - cell.x);
+
+				if (cell.class === '' || cell.class === 'start-end-node') {
+					// give the starting node a gCost of zero
 					if (cell.vertex.toString() === startEnd.start.toString()) {
 						cell.gCost = 0;
 					}
@@ -36,7 +35,7 @@ const AStarAlgorithm = (props) => {
 		return defaultUnvisited;
 	}
 
-	function aStar() {
+	const aStar = () => {
 		setUnvisited((prevUnvisited) => {
 			const newUnvisited = [
 				...prevUnvisited.sort((a, b) => (a.fCost > b.fCost ? 1 : b.fCost > a.fCost ? -1 : 0))
@@ -65,7 +64,7 @@ const AStarAlgorithm = (props) => {
 			newUnvisited.shift();
 			return newUnvisited;
 		});
-	}
+	};
 
 	function checkNeighbourCell(newGrid, y, x, neighbourY, neighbourX) {
 		// If beyond grid limits, pass
