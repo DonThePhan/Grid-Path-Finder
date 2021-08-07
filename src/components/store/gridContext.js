@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import mazeGenerator from './mazeGenerator';
 
 const GridContext = React.createContext({
 	GRID_ROWS: undefined,
@@ -7,19 +8,22 @@ const GridContext = React.createContext({
 	setGrid: () => {},
 	plotPoint: undefined,
 	setPlotPoint: () => {},
-    plotLine: () => { },
-    restGridContext: () => { },
+	plotLine: () => {},
+	restGridContext: () => {},
+	createMaze: () => {}
 });
 
 export const GridProvider = (props) => {
-	const GRID_ROWS = 20;
-	const GRID_COLS = 20;
+	//! for the MAZE, ODD numbers look better
+	const GRID_ROWS = 21;
+	const GRID_COLS = 51;
 
 	const [ grid, setGrid ] = useState(createDefaultGrid());
 	const [ plotPoint, setPlotPoint ] = useState({ y: null, x: null });
+	const [ pathingOrder, setPathingOrder ] = useState([]);
 
-    function plotLine() {
-        // Stop when end-node hit
+	function plotLine() {
+		// Stop when end-node hit
 		if (grid[plotPoint.y][plotPoint.x].class === 'start-end-node') {
 			return;
 		}
@@ -46,21 +50,62 @@ export const GridProvider = (props) => {
 					bubbled: false,
 					class: '',
 					vertex: [ y, x ],
-                    prevVertex: { y: null, x: null },
-                    gCost: Infinity, // Distance to Start node
-                    hCost: Infinity, // Distance to End node
-                    get fCost() { return this.gCost + this.hCost }
+					prevVertex: { y: null, x: null },
+					gCost: Infinity, // Distance to Start node
+					hCost: Infinity, // Distance to End node
+					get fCost() {
+						return this.gCost + this.hCost;
+					}
 				});
 			}
 			defaultGrid.push(grid_row);
 		}
-        return defaultGrid;
-    }
-    
-    function restGridContext() {
-        setGrid(createDefaultGrid())
-        setPlotPoint({ y: null, x: null })
-    }
+		return defaultGrid;
+	}
+
+	function restGridContext() {
+		setGrid(createDefaultGrid());
+		setPlotPoint({ y: null, x: null });
+	}
+
+	useEffect(
+		() => {
+			if (pathingOrder.length > 0) {
+				console.log('here');
+				setTimeout(() => {
+					setPathingOrder((nodes) => {
+						const newNodes = [ ...nodes ];
+						const node = newNodes.shift();
+						setGrid((prevGrid) => {
+							const newGrid = [ ...prevGrid ];
+							newGrid[node[0]][node[1]].class = '';
+							return newGrid;
+						});
+						return newNodes;
+					});
+				}, 10);
+			}
+		},
+		[ pathingOrder, setPathingOrder, setGrid ]
+	);
+
+	function createMaze() {
+		const {pathingOrder, defaultGrid,  /*grid: maze, startingNode*/ } = mazeGenerator(GRID_ROWS, GRID_COLS);
+		setPathingOrder(pathingOrder);
+
+		setGrid((prevGrid) => {
+			const newGrid = [ ...prevGrid ];
+			for (let y = 0; y < GRID_ROWS; y++) {
+				for (let x = 0; x < GRID_COLS; x++) {
+					if (defaultGrid[y][x] === 1) {
+						newGrid[y][x].class = 'block';
+					}
+				}
+			}
+			// newGrid[startingNode[0]][startingNode[1]].class = 'mazeCenter'
+			return newGrid;
+		});
+	}
 
 	return (
 		<GridContext.Provider
@@ -71,8 +116,9 @@ export const GridProvider = (props) => {
 				setGrid,
 				plotPoint,
 				setPlotPoint,
-                plotLine,
-                restGridContext
+				plotLine,
+				restGridContext,
+				createMaze
 			}}
 		>
 			{props.children}
