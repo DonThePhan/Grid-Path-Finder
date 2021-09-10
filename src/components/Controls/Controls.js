@@ -5,17 +5,17 @@ import React, { useContext, useState } from 'react';
 import GridContext from '../store/gridContext';
 
 function Controls() {
-	const { controlButtonClick, resetControl, algorithm, setAlgorithm } = useContext(ControlContext);
-	const { restGridContext, createMaze } = useContext(GridContext);
+	const { controlButtonClick, resetControl, algorithm, setAlgorithm, setControl } = useContext(ControlContext);
+	const { resetGridContext, createMaze } = useContext(GridContext);
 	const [ hover, setHover ] = useState(false);
 
 	function handleClick(e) {
 		if (e.target.name === 'reset') {
-			restGridContext();
 			resetControl();
-		} else if (e.target.name === 'maze') {
+			resetGridContext();
+        } else if (e.target.name === 'maze') {
+            resetControl();
 			createMaze();
-		
 		} else {
 			controlButtonClick(e.target.name);
 		}
@@ -29,10 +29,10 @@ function Controls() {
 		setHover(false);
 	}
 
-    function selectAlgorithm(algorithm) {
-        setAlgorithm(algorithm)
-        setHover(false)
-    }
+	function selectAlgorithm(algorithm) {
+		setAlgorithm(algorithm);
+		setHover(false);
+	}
 
 	return (
 		<div className={classes.controls}>

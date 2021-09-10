@@ -9,7 +9,7 @@ const GridContext = React.createContext({
 	plotPoint: undefined,
 	setPlotPoint: () => {},
 	plotLine: () => {},
-	restGridContext: () => {},
+	resetGridContext: () => {},
 	createMaze: () => {}
 });
 
@@ -63,7 +63,7 @@ export const GridProvider = (props) => {
 		return defaultGrid;
 	}
 
-	function restGridContext() {
+	function resetGridContext() {
 		setGrid(createDefaultGrid());
 		setPlotPoint({ y: null, x: null });
 	}
@@ -90,11 +90,12 @@ export const GridProvider = (props) => {
 	);
 
 	function createMaze() {
-		const {pathingOrder, defaultGrid,  /*grid: maze, startingNode*/ } = mazeGenerator(GRID_ROWS, GRID_COLS);
+        const { pathingOrder, defaultGrid /*grid: maze, startingNode*/ } = mazeGenerator(GRID_ROWS, GRID_COLS);
+
 		setPathingOrder(pathingOrder);
 
-		setGrid((prevGrid) => {
-			const newGrid = [ ...prevGrid ];
+		setGrid(() => {
+			const newGrid = createDefaultGrid();
 			for (let y = 0; y < GRID_ROWS; y++) {
 				for (let x = 0; x < GRID_COLS; x++) {
 					if (defaultGrid[y][x] === 1) {
@@ -102,7 +103,6 @@ export const GridProvider = (props) => {
 					}
 				}
 			}
-			// newGrid[startingNode[0]][startingNode[1]].class = 'mazeCenter'
 			return newGrid;
 		});
 	}
@@ -117,7 +117,7 @@ export const GridProvider = (props) => {
 				plotPoint,
 				setPlotPoint,
 				plotLine,
-				restGridContext,
+				resetGridContext: resetGridContext,
 				createMaze
 			}}
 		>
