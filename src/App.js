@@ -1,3 +1,11 @@
+/**
+ **Project Console: 
+ * https://console.firebase.google.com/project/path-finder-90df8/overview
+ * 
+ **Hosting URL: 
+ * https://path-finder-90df8.web.app
+ */
+
 import { useEffect, useContext } from 'react';
 import './App.css';
 

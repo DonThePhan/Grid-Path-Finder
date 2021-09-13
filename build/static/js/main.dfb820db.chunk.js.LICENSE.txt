@@ -1,0 +1,5 @@
+//! else fill end
+
+//! for the MAZE, ODD numbers look better
+
+//! if end has value, erase class from this node in the grid

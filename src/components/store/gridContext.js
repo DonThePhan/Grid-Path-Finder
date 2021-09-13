@@ -16,7 +16,7 @@ const GridContext = React.createContext({
 export const GridProvider = (props) => {
 	//! for the MAZE, ODD numbers look better
 	const GRID_ROWS = 21;
-	const GRID_COLS = 51;
+	const GRID_COLS = 21;
 
 	const [ grid, setGrid ] = useState(createDefaultGrid());
 	const [ plotPoint, setPlotPoint ] = useState({ y: null, x: null });
