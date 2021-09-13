@@ -2,7 +2,9 @@
 
 ### DESCRIPTION:
 This app uses path finding algorithms (Djikstra's & A*) to navigate through obstacles and find the shortest path.
-This is my attempt at replicating a project done by Clément Mihailescu. Here's a link to the original https://www.youtube.com/watch?v=n4t_-NjY_Sg&t=176s
+
+This is my attempt at replicating a project done by Clément Mihailescu. <br>Here's a link to the original https://www.youtube.com/watch?v=n4t_-NjY_Sg&t=176s
+
 The challenge was to create as much as I could without referencing his code. I pretty much built the project from scratch. Proud to say figured out the maze algorithm myself :)
 
 ### PROJECT LINK:
