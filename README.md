@@ -7,11 +7,12 @@ https://user-images.githubusercontent.com/74743983/133126819-589ca4dc-4aca-44d5-
 https://path-finder-90df8.web.app/
 
 ### DESCRIPTION:
-This app uses path finding algorithms (Djikstra's & A*) to navigate through obstacles and find the shortest path.
+
+This is a ReactJS Frontend App that uses path finding algorithms (Djikstra's & A*) to navigate through obstacles and find the shortest path.
 
 This is my attempt at replicating a project done by Clément Mihailescu. <br>Here's a link to the original https://www.youtube.com/watch?v=n4t_-NjY_Sg&t=176s
 
-The challenge was to create as much as I could without referencing his code. I pretty much built the project from scratch. Proud to say figured out the maze algorithm myself :)
+The challenge was to create as much as I could without referencing his code. Project built from scratch. Proud to say came up with the maze algorithm myself :)
 
 ### GUIDE:
 **1. Creating Obstacles**
