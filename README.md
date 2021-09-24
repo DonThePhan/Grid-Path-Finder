@@ -1,14 +1,17 @@
 # React: Grid Path Finder
 
+### VIDEO DEMO:
+https://user-images.githubusercontent.com/74743983/133126819-589ca4dc-4aca-44d5-89b8-18c9c57e5487.mp4
+
+### APP LINK:
+https://path-finder-90df8.web.app/
+
 ### DESCRIPTION:
 This app uses path finding algorithms (Djikstra's & A*) to navigate through obstacles and find the shortest path.
 
 This is my attempt at replicating a project done by Clément Mihailescu. <br>Here's a link to the original https://www.youtube.com/watch?v=n4t_-NjY_Sg&t=176s
 
 The challenge was to create as much as I could without referencing his code. I pretty much built the project from scratch. Proud to say figured out the maze algorithm myself :)
-
-### PROJECT LINK:
-https://path-finder-90df8.web.app/
 
 ### GUIDE:
 **1. Creating Obstacles**
@@ -28,8 +31,6 @@ Or automatically using the  "Create Maze" button.
   1. "Reset" - If the app is in the middle of solving, clicking the "Reset" button will crash the app.
   2. "Block" - The drag & drop mechanism for the "Block" button is finicky. Sometimes it works in reverse ('mouse button up' adds blocks and 'mouse button down' removes blocks). Also if you drag the mouse too quickly it will skip over some squares.
 
-### DEMO VIDEO:
 
-https://user-images.githubusercontent.com/74743983/133126819-589ca4dc-4aca-44d5-89b8-18c9c57e5487.mp4
 
 
