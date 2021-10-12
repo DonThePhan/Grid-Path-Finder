@@ -1,10 +1,10 @@
 # React: Grid Path Finder
 
-### VIDEO DEMO:
-https://user-images.githubusercontent.com/74743983/133126819-589ca4dc-4aca-44d5-89b8-18c9c57e5487.mp4
-
 ### APP LINK:
 https://path-finder-90df8.web.app/
+
+### VIDEO DEMO:
+https://user-images.githubusercontent.com/74743983/133126819-589ca4dc-4aca-44d5-89b8-18c9c57e5487.mp4
 
 ### DESCRIPTION:
 
