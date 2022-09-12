@@ -1,9 +1,8 @@
 .cell {
 	display: inline-block;
-	padding: 0;
-	height: 30px;
-	width: 30px;
+	aspect-ratio: 1 / 1;
 	border: 1px grey solid;
+  flex: 1 1 0px;
 }
 
 .inside {
@@ -15,6 +14,9 @@
 	margin: 0;
 	padding: 0;
 	transition: .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .start-end-node,
@@ -61,7 +63,6 @@
 
 div i {
     transform: rotate(-90deg);
-    margin: 7px;
     color: #0A1931;
 }
 
@@ -75,3 +76,28 @@ div p {
 .mazeCenter{
     background-color: green;
 }
+
+@media (max-width: 700px) {
+  i {
+    font-size: .75em;
+  }
+ } 
+ 
+@media (max-width: 700px) {
+  i {
+    font-size: .75em;
+  }
+ }
+
+ @media (max-width: 700px) {
+  i {
+    font-size: .5em;
+  }
+ }
+
+
+ @media (max-width: 550px) {
+  i {
+    font-size: 5px;
+  }
+ }
