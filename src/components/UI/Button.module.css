@@ -13,3 +13,19 @@
 .selected {
     background-color: cyan;
 }
+
+@media (max-width: 600px) {
+
+  .button {
+    font-size: .75em;
+  }
+  
+}
+
+@media (max-width: 400px) {
+
+  .button {
+    font-size: .5em;
+  }
+  
+}
