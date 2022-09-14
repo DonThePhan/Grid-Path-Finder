@@ -77,27 +77,17 @@ div p {
     background-color: green;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   i {
     font-size: .75em;
   }
- } 
- 
-@media (max-width: 700px) {
-  i {
-    font-size: .75em;
-  }
- }
+}
 
- @media (max-width: 700px) {
+@media (max-width: 400px) {
   i {
     font-size: .5em;
   }
- }
+}
 
 
- @media (max-width: 550px) {
-  i {
-    font-size: 5px;
-  }
- }
+ 
